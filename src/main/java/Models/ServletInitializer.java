@@ -1,4 +1,4 @@
-package pro150.gamingdepot;
+package Models;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
