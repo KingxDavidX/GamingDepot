@@ -16,5 +16,27 @@ public class UserDataArray {
         }
     }
 
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public static User getById(int id) {
+        return users.stream().filter(user-> user.getUserId() == id).findFirst().orElse(null);
+    }
+
+    public static User update(User user) {
+        User temp_users= UserDataArray.users.stream().filter(i -> i.getUserId() == user.getUserId()).findFirst().orElse(null);
+        if (user != null) {
+            users.remove(user);
+            users.add(user);
+        }
+
+        return user;
+    }
+
+    public static String deleteById(int id) {
+        return users.removeIf(user-> user.getUserId() == id) ? "Removed" : "Not Found";
+    }
+
     
 }
