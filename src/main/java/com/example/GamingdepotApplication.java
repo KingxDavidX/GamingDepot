@@ -1,7 +1,6 @@
-package com.example.Models;
+package com.example;
 
 
-import org.apache.catalina.startup.WebAnnotationSet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

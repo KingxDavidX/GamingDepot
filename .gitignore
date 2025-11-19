@@ -147,6 +147,7 @@ fabric.properties
 .mtj.tmp/
 
 # Package Files #
+amazon_products_sales_data_cleaned.csv
 .idea
 .vscode
 *.jar
