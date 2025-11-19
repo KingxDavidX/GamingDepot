@@ -1,11 +1,12 @@
 package com.example.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class User {
+    //TODO: Connect User to Order and Cart using Foreign Keys
     private Long user_id;
     private String name;
     private String email;
@@ -40,6 +41,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void login() {
+        //TODO: Implement funtionality
+    }
+
+    public void register() {
+        //TODO: Implement funtionality
     }
 
 
