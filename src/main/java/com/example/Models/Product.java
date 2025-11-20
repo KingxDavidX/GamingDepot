@@ -1,88 +1,138 @@
 package com.example.Models;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@Table(name = "products")
 public class Product {
-    //TODO: Add connection to cart
-    //region Variables/Colums
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    int productId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(nullable = false)
-    String productName;
+    private String productTitle;
+    private Double productRating;
+    private Integer totalReviews;
+    private Double discountedPrice;
+    private Double originalPrice;
+    private String isBestSeller;
+    private String isSponsored;
+    private String hasCoupon;
+    private String sustainabilityTags;
+    private String productImageUrl;
+    
+    @Column(length = 2048) 
+    private String productPageUrl;
 
-    @Column(nullable = false)
-    String details;
+    private String productCategory;
+    private Double discountPercentage;
 
-    @Column(nullable = false)
-    int price;
-    //endregion
 
-    //region Constructors
-    public Product(int productId, String productName, String details, int price) {
-        this.productId = productId;
-        this.productName = productName;
-        this.details = details;
-        this.price = price;
+    
+    public Product(Long id, String productTitle, Double productRating, Integer totalReviews, Double discountedPrice,
+            Double originalPrice, String isBestSeller, String isSponsored, String hasCoupon, String sustainabilityTags,
+            String productImageUrl, String productPageUrl, String productCategory, Double discountPercentage) {
+        this.id = id;
+        this.productTitle = productTitle;
+        this.productRating = productRating;
+        this.totalReviews = totalReviews;
+        this.discountedPrice = discountedPrice;
+        this.originalPrice = originalPrice;
+        this.isBestSeller = isBestSeller;
+        this.isSponsored = isSponsored;
+        this.hasCoupon = hasCoupon;
+        this.sustainabilityTags = sustainabilityTags;
+        this.productImageUrl = productImageUrl;
+        this.productPageUrl = productPageUrl;
+        this.productCategory = productCategory;
+        this.discountPercentage = discountPercentage;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getProductTitle() {
+        return productTitle;
+    }
+    public void setProductTitle(String productTitle) {
+        this.productTitle = productTitle;
+    }
+    public Double getProductRating() {
+        return productRating;
+    }
+    public void setProductRating(Double productRating) {
+        this.productRating = productRating;
+    }
+    public Integer getTotalReviews() {
+        return totalReviews;
+    }
+    public void setTotalReviews(Integer totalReviews) {
+        this.totalReviews = totalReviews;
+    }
+    public Double getDiscountedPrice() {
+        return discountedPrice;
+    }
+    public void setDiscountedPrice(Double discountedPrice) {
+        this.discountedPrice = discountedPrice;
+    }
+    public Double getOriginalPrice() {
+        return originalPrice;
+    }
+    public void setOriginalPrice(Double originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+    public String getIsBestSeller() {
+        return isBestSeller;
+    }
+    public void setIsBestSeller(String isBestSeller) {
+        this.isBestSeller = isBestSeller;
+    }
+    public String getIsSponsored() {
+        return isSponsored;
+    }
+    public void setIsSponsored(String isSponsored) {
+        this.isSponsored = isSponsored;
+    }
+    public String getHasCoupon() {
+        return hasCoupon;
+    }
+    public void setHasCoupon(String hasCoupon) {
+        this.hasCoupon = hasCoupon;
+    }
+    public String getSustainabilityTags() {
+        return sustainabilityTags;
+    }
+    public void setSustainabilityTags(String sustainabilityTags) {
+        this.sustainabilityTags = sustainabilityTags;
+    }
+    public String getProductImageUrl() {
+        return productImageUrl;
+    }
+    public void setProductImageUrl(String productImageUrl) {
+        this.productImageUrl = productImageUrl;
+    }
+    public String getProductPageUrl() {
+        return productPageUrl;
+    }
+    public void setProductPageUrl(String productPageUrl) {
+        this.productPageUrl = productPageUrl;
+    }
+    public String getProductCategory() {
+        return productCategory;
+    }
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+    public Double getDiscountPercentage() {
+        return discountPercentage;
+    }
+    public void setDiscountPercentage(Double discountPercentage) {
+        this.discountPercentage = discountPercentage;
     }
 
-    public Product() {}
-
-    //endregion
-
-    //region Getters/Setters
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    //endregion
-
-    public void sellProduct() {
-        //TODO: Implement method logic
-    }
-
-    public void addToCart(){
-        //TODO: Implement method logic
-    }
-
-    public void removeFromCart(){
-        //TODO: Implemment method logic
-    }
-
-    public void buyProduct(){
-        //TODO: Implement Method logic
-    }
+    
 }
