@@ -3,17 +3,33 @@ package com.example.Models;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Order {
+    //region Variables/Columns
+    //TODO: Add connection to user
     int customerId;
-    int orderId;
-    Date orderDate;
-    String status;
-    float totalAmount;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int orderId;
+
+    @Column(nullable = false)
+    Date orderDate;
+
+    @Column(nullable = false)
+    String status;
+
+    @Column(nullable = false)
+    float totalAmount;
+    //endregion
+
+    //region Constructor
     public Order(int customerId, int orderId, Date orderDate, String status, float totalAmount) {
         this.customerId = customerId;
         this.orderId = orderId;
@@ -24,6 +40,9 @@ public class Order {
 
     public Order() {}
 
+    //endregion
+
+    //region Getters/Setters
     public int getCustomerId() {
         return customerId;
     }
@@ -63,4 +82,5 @@ public class Order {
     public void setTotalAmount(float totalAmount) {
         this.totalAmount = totalAmount;
     }
+    //endregion
 }
