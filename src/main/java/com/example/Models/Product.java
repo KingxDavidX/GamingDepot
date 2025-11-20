@@ -1,45 +1,88 @@
 package com.example.Models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "products") 
 public class Product {
-
+    //TODO: Add connection to cart
+    //region Variables/Colums
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int productId;
 
-    private String title;
-    private String category;
-    private Double price;
-    private String brand;
+    @Column(nullable = false)
+    String productName;
+
+    @Column(nullable = false)
+    String details;
+
+    @Column(nullable = false)
+    int price;
+    //endregion
+
+    //region Constructors
+    public Product(int productId, String productName, String details, int price) {
+        this.productId = productId;
+        this.productName = productName;
+        this.details = details;
+        this.price = price;
+    }
 
     public Product() {}
 
-    public Product(String title, String category, Double price, String brand) {
-        this.title = title;
-        this.category = category;
-        this.price = price;
-        this.brand = brand;
+    //endregion
+
+    //region Getters/Setters
+    public int getProductId() {
+        return productId;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public String getProductName() {
+        return productName;
+    }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
-    public Double getPrice() { return price; }
-    public void setPrice(Double price) { this.price = price; }
+    public String getDetails() {
+        return details;
+    }
 
-    public String getBrand() { return brand; }
-    public void setBrand(String brand) { this.brand = brand; }
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    //endregion
+
+    public void sellProduct() {
+        //TODO: Implement method logic
+    }
+
+    public void addToCart(){
+        //TODO: Implement method logic
+    }
+
+    public void removeFromCart(){
+        //TODO: Implemment method logic
+    }
+
+    public void buyProduct(){
+        //TODO: Implement Method logic
+    }
 }

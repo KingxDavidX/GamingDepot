@@ -1,14 +1,24 @@
 package com.example.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeId;
+import jakarta.persistence.*;
+
 import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+@Entity
 public class User {
     //TODO: Connect User to Order and Cart using Foreign Keys
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long user_id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
 
     public User() {}

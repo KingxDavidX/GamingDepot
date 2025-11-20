@@ -1,17 +1,36 @@
 package com.example.Models;
 
-public class Cart {
-    //TODO: Add connection to customer and Order
-    int cartID;
-    int customerID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+@Entity
+public class Cart {
+
+    //region Variables/Columns
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int cartID;
+
+    //TODO: Add connection to customer and Order
+    int customerID;
+    //endregion
+
+    //region Constructors
     public Cart(int cartID, int customerID) {
         this.cartID = cartID;
         this.customerID = customerID;
     }
 
     public Cart(){}
+    //endregion
 
+    //region Getters/Setters
     public int getCartID() {
         return cartID;
     }
@@ -26,5 +45,14 @@ public class Cart {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+    //endregion
+
+    public void addItem(){
+        //TODO: Implement method logic
+    }
+
+    public void removeItem(){
+        //TODO: Implement Method logic
     }
 }
