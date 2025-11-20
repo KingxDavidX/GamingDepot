@@ -49,6 +49,9 @@ public class Product {
         this.productCategory = productCategory;
         this.discountPercentage = discountPercentage;
     }
+
+    public Product() {}
+    
     public Long getId() {
         return id;
     }

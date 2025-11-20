@@ -43,6 +43,7 @@ public class Order {
     //endregion
 
     //region Getters/Setters
+
     public int getCustomerId() {
         return customerId;
     }
