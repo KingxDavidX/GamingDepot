@@ -19,7 +19,7 @@ public class Cart {
     int customerID;
 
     @ManyToMany
-    @JoinColumn(name = "productId", referencedColumnName = "cartID")
+    @JoinTable(name = "productId", referencedColumnName = "cartID")
     private List<Product> productID;
     //endregion
 
