@@ -54,10 +54,10 @@ public class Product {
     public Product() {}
 
     public Product(Long id, String productTitle, BigDecimal productRating, Integer totalReviews,
-                    BigDecimal discountedPrice, BigDecimal originalPrice, String isBestSeller,
-                    String isSponsored, String hasCoupon, String sustainabilityTags,
-                    String productImageUrl, String productPageUrl, String productCategory,
-                    BigDecimal discountPercentage) {
+                   BigDecimal discountedPrice, BigDecimal originalPrice, String isBestSeller,
+                   String isSponsored, String hasCoupon, String sustainabilityTags,
+                   String productImageUrl, String productPageUrl, String productCategory,
+                   BigDecimal discountPercentage) {
         this.id = id;
         this.productTitle = productTitle;
         this.productRating = productRating;
@@ -74,7 +74,7 @@ public class Product {
         this.discountPercentage = discountPercentage;
     }
 
-    
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
