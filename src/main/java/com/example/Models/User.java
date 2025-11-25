@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
     //TODO: Connect User to Order and Cart using Foreign Keys
     @Id

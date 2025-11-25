@@ -9,10 +9,10 @@ import com.example.Models.User;
 @RequestMapping("/users")
 public class UserController {
 
+    public UserController() {}
 
     @RequestMapping(path = "", method = RequestMethod.POST)
     public String create(@RequestBody User user) {
-
         return UserDataArray.add(user);
     }
 

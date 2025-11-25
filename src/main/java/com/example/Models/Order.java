@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name= "order")
 public class Order {
     //region Variables/Columns
-    //TODO: Add connection to user
-    int customerId;
+    @ManyToMany
+    @JoinColumn(name = "user_id", referencedColumnName = "orderId")
+    private List<User> customerId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +32,7 @@ public class Order {
     //endregion
 
     //region Constructor
-    public Order(int customerId, int orderId, Date orderDate, String status, float totalAmount) {
+    public Order(List<User> customerId, int orderId, Date orderDate, String status, float totalAmount) {
         this.customerId = customerId;
         this.orderId = orderId;
         this.orderDate = orderDate;
@@ -44,11 +46,11 @@ public class Order {
 
     //region Getters/Setters
 
-    public int getCustomerId() {
+    public List<User> getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(List<User> customerId) {
         this.customerId = customerId;
     }
 

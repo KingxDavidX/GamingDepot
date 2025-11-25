@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
-//@Table(name= "cart")
+@Table(name= "cart")
 public class Cart {
 
     //region Variables/Columns
@@ -17,6 +17,10 @@ public class Cart {
 
     //TODO: Add connection to customer and Order
     int customerID;
+
+    @ManyToMany
+    @JoinColumn(name = "productId", referencedColumnName = "cartID")
+    private List<Product> productID;
     //endregion
 
     //region Constructors
