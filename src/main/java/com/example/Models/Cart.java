@@ -54,6 +54,15 @@ public class Cart {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     //endregion
 
     public void addItem(){
