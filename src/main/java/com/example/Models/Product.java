@@ -2,6 +2,7 @@ package com.example.Models;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -11,6 +12,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Long id;
+
+    @ManyToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<Cart> carts;
+
+    @ManyToOne(fetch = FetchType.LAZY)         // LAZY is typically better for catalog reads
+    @JoinColumn(name = "categoryId", nullable = true)
+    private Category category;
 
     @Column(name = "product_title", length = 500)
     private String productTitle;
