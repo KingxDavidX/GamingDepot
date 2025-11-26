@@ -18,9 +18,9 @@ public class Cart {
     //TODO: Add connection to customer and Order
     int customerID;
 
-    @ManyToMany
-    @JoinTable(name = "productId", referencedColumnName = "cartID")
-    private List<Product> productID;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "PRODUCTID", joinColumns = {@JoinColumn(name = "cartID")}, inverseJoinColumns= {@JoinColumn (name = "cartID")})
+    private List<Product> products;
     //endregion
 
     //region Constructors
@@ -48,6 +48,15 @@ public class Cart {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     //endregion
 
     public void addItem(){
