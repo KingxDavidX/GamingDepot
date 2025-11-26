@@ -14,7 +14,11 @@ import java.util.List;
 public class Order {
     //region Variables/Columns
     @ManyToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "orderId")
+    @JoinTable(
+    name = "order_customer",         
+    joinColumns = @JoinColumn(name = "order_id"), 
+    inverseJoinColumns = @JoinColumn(name = "customer_id"))
+    
     private List<User> customerId;
 
     @Id
