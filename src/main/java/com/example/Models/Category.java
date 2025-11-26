@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -22,6 +23,9 @@ public class Category {
 
     @Column(nullable = false)
     String description;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST)
+    private Set<Product> products;
     //endregion
 
     //region Constructors
