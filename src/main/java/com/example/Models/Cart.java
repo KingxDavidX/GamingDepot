@@ -18,9 +18,15 @@ public class Cart {
     //TODO: Add connection to customer and Order
     int customerID;
 
+
     @ManyToMany
-    @JoinTable(name = "productId", referencedColumnName = "cartID")
-    private List<Product> productID;
+    @JoinTable(
+            name = "cart_products",
+            joinColumns = @JoinColumn(name = "cart_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products = new ArrayList<>();
+
     //endregion
 
     //region Constructors
