@@ -8,6 +8,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+    public OrderController() {}
+
     @RequestMapping(path = "", method = RequestMethod.POST)
     public String create(@RequestBody Order order) {
         return OrderDataArray.add(order);

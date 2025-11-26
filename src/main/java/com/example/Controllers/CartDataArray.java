@@ -10,13 +10,13 @@ public class CartDataArray {
     public static String add(Cart cart) {
         if (carts.stream().filter(i -> i.getCartID() == cart.getCartID()).findFirst().orElse(null) == null) {
             carts.add(cart);
-            return "Pilot Added";
+            return "Product Added";
         } else {
             return "Id Conflict";
         }
     }
 
-    public static ArrayList<Cart> getPilots() {
+    public static ArrayList<Cart> getCarts() {
         return carts;
     }
 
@@ -35,6 +35,6 @@ public class CartDataArray {
     }
 
     public static String deleteById(int id) {
-        return carts.removeIf(pilot -> pilot.getCartID() == id) ? "Removed" : "Not Found";
+        return carts.removeIf(product -> product.getCartID() == id) ? "Removed" : "Not Found";
     }
 }
