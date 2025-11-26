@@ -17,8 +17,8 @@ public class Order {
     @JoinTable(
     name = "order_customer",         
     joinColumns = @JoinColumn(name = "order_id"), 
-    inverseJoinColumns = @JoinColumn(name = "customer_id")
-)
+    inverseJoinColumns = @JoinColumn(name = "customer_id"))
+    
     private List<User> customerId;
 
     @Id
