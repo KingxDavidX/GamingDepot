@@ -14,7 +14,6 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int cartID;
-
     //TODO: Add connection to customer and Order
     int customerID;
 
@@ -65,11 +64,11 @@ public class Cart {
 
     //endregion
 
-    public void addItem(){
-        //TODO: Implement method logic
+    public void addItem(Product product){
+        this.products.add(product);
     }
 
-    public void removeItem(){
-        //TODO: Implement Method logic
+    public void removeItem(Product product){
+        this.products.remove(product);
     }
 }

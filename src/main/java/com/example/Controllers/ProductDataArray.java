@@ -9,7 +9,7 @@ public class ProductDataArray {
     private static final ArrayList<Product> products = new ArrayList<>();
 
     public static String add(Product product) {
-        if (products.stream().filter(i -> i.getId() == product.getId()).findFirst().orElse(null) == null) {
+        if (products.stream().filter(i -> i.getProductId() == product.getProductId()).findFirst().orElse(null) == null) {
             products.add(product);
             return "Product Added";
         } else {
@@ -21,12 +21,12 @@ public class ProductDataArray {
         return products;
     }
 
-    public static Product getById(int id) {
-        return products.stream().filter(product -> product.getId() == id).findFirst().orElse(null);
+    public static Product getById(int productId) {
+        return products.stream().filter(product -> product.getProductId() == productId).findFirst().orElse(null);
     }
 
     public static Product update(Product product) {
-        Product temp_product = products.stream().filter(i -> i.getId() == product.getId()).findFirst().orElse(null);
+        Product temp_product = products.stream().filter(i -> i.getProductId() == product.getProductId()).findFirst().orElse(null);
         if (temp_product != null) {
             products.remove(temp_product);
             products.add(product);
@@ -35,7 +35,7 @@ public class ProductDataArray {
         return product;
     }
 
-    public static String deleteById(int id) {
-        return products.removeIf(product -> product.getId() == id) ? "Removed" : "Not Found";
+    public static String deleteById(int productId) {
+        return products.removeIf(product -> product.getProductId() == productId) ? "Removed" : "Not Found";
     }
 }
