@@ -1,63 +1,26 @@
 package com.example.models;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "products")
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
     private Long productId;
-
-    @ManyToMany(mappedBy = "products")
     private List<Cart> carts = new ArrayList<>();
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoryId", nullable = true)
     private Category category;
-
-    @Column(name = "product_title", length = 500)
     private String productTitle;
-
-    @Column(name = "product_rating", precision = 3, scale = 2)
     private BigDecimal productRating;
-
-    @Column(name = "total_reviews")
     private Integer totalReviews;
-
-    @Column(name = "discounted_price", precision = 10, scale = 2)
     private BigDecimal discountedPrice;
-
-    @Column(name = "original_price", precision = 10, scale = 2)
     private BigDecimal originalPrice;
-
-    @Column(name = "is_best_seller", length = 50)
     private String isBestSeller;
-
-    @Column(name = "is_sponsored", length = 50)
     private String isSponsored;
-
-    @Column(name = "has_coupon", length = 50)
     private String hasCoupon;
-
-    @Column(name = "sustainability_tags", columnDefinition = "TEXT")
     private String sustainabilityTags;
-
-    @Column(name = "product_image_url", length = 1000)
     private String productImageUrl;
-
-    @Column(name = "product_page_url", length = 2000)
     private String productPageUrl;
-
-    @Column(name = "product_category", length = 200)
     private String productCategory;
-
-    @Column(name = "discount_percentage", precision = 5, scale = 2)
     private BigDecimal discountPercentage;
 
     public Product() {}

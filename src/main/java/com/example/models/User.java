@@ -1,18 +1,9 @@
 package com.example.models;
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "user")
 public class User {
-    //TODO: Connect User to Order and Cart using Foreign Keys
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long user_id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
     private String email;
 
     public User() {}

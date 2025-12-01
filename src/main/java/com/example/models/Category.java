@@ -1,27 +1,17 @@
 package com.example.models;
 
-import jakarta.persistence.*;
-
 import java.util.Set;
 
-@Entity
-@Table(name = "category")
+
 public class Category {
-    //TODO: Connect to product
 
     //region Variable/Products
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     int categoryId;
-
-    @Column(unique = true, nullable = false)
     String name;
-
-    @Column(nullable = false)
     String description;
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST)
     private Set<Product> products;
+
     //endregion
 
     //region Constructors

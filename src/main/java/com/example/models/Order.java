@@ -1,35 +1,17 @@
 package com.example.models;
 
 import java.util.Date;
-
-import jakarta.persistence.*;
-
 import java.util.List;
 
-@Entity
-@Table(name= "order")
 public class Order {
     //region Variables/Columns
-    @ManyToMany
-    @JoinTable(
-            name = "order_customer",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "customer_id"))
 
     private List<User> customerId;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     int orderId;
-
-    @Column(nullable = false)
     Date orderDate;
-
-    @Column(nullable = false)
     String status;
-
-    @Column(nullable = false)
     float totalAmount;
+
     //endregion
 
     //region Constructor

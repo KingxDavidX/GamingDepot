@@ -1,27 +1,14 @@
 package com.example.models;
 
-import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
-@Entity
-@Table(name= "cart")
+
 public class Cart {
 
     //region Variables/Columns
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     int cartID;
-    //TODO: Add connection to customer and Order
     int customerID;
-
-
-    @ManyToMany
-    @JoinTable(
-            name = "cart_products",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-
     private List<Product> products = new ArrayList<>();
 
     //endregion
