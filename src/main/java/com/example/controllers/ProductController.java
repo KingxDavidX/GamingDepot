@@ -1,8 +1,8 @@
-package com.example.Controllers;
+package com.example.controllers;
 
 
-import com.example.Models.Product;
-import com.example.Repositories.ProductRepository;
+import com.example.models.Product;
+import com.example.product.repositories.ProductRepository;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class ProductController {
 
     private final ProductRepository productRepository;

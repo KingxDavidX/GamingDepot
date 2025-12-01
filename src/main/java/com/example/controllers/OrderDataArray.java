@@ -1,6 +1,6 @@
-package com.example.Controllers;
+package com.example.controllers;
 
-import com.example.Models.Order;
+import com.example.models.Order;
 
 import java.util.ArrayList;
 

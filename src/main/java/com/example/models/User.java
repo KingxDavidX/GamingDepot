@@ -1,12 +1,5 @@
-package com.example.Models;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonTypeId;
+package com.example.models;
 import jakarta.persistence.*;
-
-import javax.annotation.processing.Generated;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "user")

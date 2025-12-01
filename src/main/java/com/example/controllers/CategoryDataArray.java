@@ -1,6 +1,6 @@
-package com.example.Controllers;
+package com.example.controllers;
 
-import com.example.Models.Category;
+import com.example.models.Category;
 import java.util.ArrayList;
 
 public class CategoryDataArray {

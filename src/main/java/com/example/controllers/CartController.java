@@ -1,6 +1,6 @@
-package com.example.Controllers;
+package com.example.controllers;
 
-import com.example.Models.Cart;
+import com.example.models.Cart;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

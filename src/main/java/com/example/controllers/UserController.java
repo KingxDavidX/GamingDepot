@@ -1,9 +1,9 @@
-package com.example.Controllers;
+package com.example.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
-import com.example.Models.User;
+import com.example.models.User;
 
 @RestController
 @RequestMapping("/users")

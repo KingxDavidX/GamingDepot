@@ -1,12 +1,9 @@
-package com.example.Models;
+package com.example.models;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +11,11 @@ import java.util.List;
 public class Order {
     //region Variables/Columns
     @ManyToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "orderId")
+    @JoinTable(
+            name = "order_customer",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "customer_id"))
+
     private List<User> customerId;
 
     @Id

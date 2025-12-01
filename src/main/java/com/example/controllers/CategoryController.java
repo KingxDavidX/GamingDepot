@@ -1,8 +1,6 @@
-package com.example.Controllers;
+package com.example.controllers;
 
-import com.example.Models.Category;
-import com.example.Models.Product;
-import com.example.Repositories.ProductRepository;
+import com.example.models.Category;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,12 +1,12 @@
-package com.example.Controllers;
+package com.example.controllers;
 
 import java.util.*;
 
-import com.example.Models.User;
+import com.example.models.User;
 
 public class UserDataArray {
     private static final ArrayList<User> users = new ArrayList<>();
-    
+
     public static String add(User user) {
         if (users.stream().filter(i -> i.getUserId() == user.getUserId()).findFirst().orElse(null) == null) {
             users.add(user);
@@ -38,5 +38,5 @@ public class UserDataArray {
         return users.removeIf(user-> user.getUserId() == id) ? "Removed" : "Not Found";
     }
 
-    
+
 }

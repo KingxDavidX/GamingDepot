@@ -19,9 +19,9 @@ import java.util.Map;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef = "secondEntityManagerFactoryBean",
-        basePackages = {"com.example.Repositories"},
-        transactionManagerRef = "secondTransactionManager"
+        entityManagerFactoryRef = "userEntityManager",
+        basePackages = {"com.example.user.repositories"},
+        transactionManagerRef = "userTransactionManager"
 )
 public class UserDBConfig {
     @Autowired
@@ -38,7 +38,7 @@ public class UserDBConfig {
         return dataSource;
     }
 
-    @Bean(name = "secondEntityManagerFactoryBean")
+    @Bean(name = "userEntityManager")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
         bean.setDataSource(dataSource());
@@ -56,7 +56,7 @@ public class UserDBConfig {
         return bean;
     }
 
-    @Bean(name = "secondTransactionManager")
+    @Bean(name = "userTransactionManager")
     public PlatformTransactionManager transactionManager(){
         JpaTransactionManager manager = new JpaTransactionManager();
         manager.setEntityManagerFactory(entityManagerFactoryBean().getObject());
