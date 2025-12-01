@@ -2,6 +2,7 @@ package com.example.Models;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,12 +12,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Long id;
+    private Long productId;
 
-    @ManyToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<Cart> carts;
+    @ManyToMany(mappedBy = "products")
+    private List<Cart> carts = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)         // LAZY is typically better for catalog reads
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId", nullable = true)
     private Category category;
 
@@ -61,12 +62,12 @@ public class Product {
 
     public Product() {}
 
-    public Product(Long id, String productTitle, BigDecimal productRating, Integer totalReviews,
+    public Product(Long productId, String productTitle, BigDecimal productRating, Integer totalReviews,
                    BigDecimal discountedPrice, BigDecimal originalPrice, String isBestSeller,
                    String isSponsored, String hasCoupon, String sustainabilityTags,
                    String productImageUrl, String productPageUrl, String productCategory,
                    BigDecimal discountPercentage) {
-        this.id = id;
+        this.productId = productId;
         this.productTitle = productTitle;
         this.productRating = productRating;
         this.totalReviews = totalReviews;
@@ -83,8 +84,10 @@ public class Product {
     }
 
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    //region getters/setters
+
+    public Long getProductId() { return productId; }
+    public void setProductId(Long productId) { this.productId = productId; }
 
     public String getProductTitle() { return productTitle; }
     public void setProductTitle(String productTitle) { this.productTitle = productTitle; }
@@ -124,4 +127,7 @@ public class Product {
 
     public BigDecimal getDiscountPercentage() { return discountPercentage; }
     public void setDiscountPercentage(BigDecimal discountPercentage) { this.discountPercentage = discountPercentage; }
+//endregion
+
+
 }

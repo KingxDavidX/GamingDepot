@@ -14,13 +14,18 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int cartID;
-
     //TODO: Add connection to customer and Order
     int customerID;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "PRODUCTID", joinColumns = {@JoinColumn(name = "cartID")}, inverseJoinColumns= {@JoinColumn (name = "cartID")})
-    private List<Product> products;
+
+    @ManyToMany
+    @JoinTable(
+            name = "cart_products",
+            joinColumns = @JoinColumn(name = "cart_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+
+    private List<Product> products = new ArrayList<>();
+
     //endregion
 
     //region Constructors
@@ -59,11 +64,11 @@ public class Cart {
 
     //endregion
 
-    public void addItem(){
-        //TODO: Implement method logic
+    public void addItem(Product product){
+        this.products.add(product);
     }
 
-    public void removeItem(){
-        //TODO: Implement Method logic
+    public void removeItem(Product product){
+        this.products.remove(product);
     }
 }
