@@ -2,7 +2,7 @@ package com.example.controllers;
 
 
 import com.example.models.Product;
-import com.example.product.repositories.ProductRepository;
+import com.example.repositories.catalog.ProductRepository;
 
 import org.springframework.web.bind.annotation.*;
 

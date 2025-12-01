@@ -1,4 +1,4 @@
-package com.example.product.repositories;
+package com.example.repositories.catalog;
 
 
 
