@@ -1,13 +1,13 @@
 package com.example.controllers;
 
-import com.example.models.Category;
+import com.example.catalog.model.Category;
 import java.util.ArrayList;
 
 public class CategoryDataArray {
     private static final ArrayList<Category> categories = new ArrayList<>();
 
     public static String add(Category category) {
-        if (categories.stream().filter(i -> i.getCategoryId() == category.getCategoryId()).findFirst().orElse(null) == null) {
+        if (categories.stream().filter(i -> i.getCategory_id() == category.getCategory_id()).findFirst().orElse(null) == null) {
             categories.add(category);
             return "Category Added";
         } else {
@@ -19,11 +19,11 @@ public class CategoryDataArray {
     }
 
     public static Category getById(int id) {
-        return categories.stream().filter(category -> category.getCategoryId() == id).findFirst().orElse(null);
+        return categories.stream().filter(category -> category.getCategory_id() == id).findFirst().orElse(null);
     }
 
     public static Category update(Category category) {
-        Category temp_category = categories.stream().filter(i -> i.getCategoryId() == category.getCategoryId()).findFirst().orElse(null);
+        Category temp_category = categories.stream().filter(i -> i.getCategory_id() == category.getCategory_id()).findFirst().orElse(null);
         if (temp_category != null) {
             categories.remove(temp_category);
             categories.add(category);
@@ -33,6 +33,6 @@ public class CategoryDataArray {
     }
 
     public static String deleteById(int id) {
-        return categories.removeIf(category -> category.getCategoryId() == id) ? "Removed" : "Not Found";
+        return categories.removeIf(category -> category.getCategory_id() == id) ? "Removed" : "Not Found";
     }
 }

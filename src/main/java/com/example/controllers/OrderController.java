@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import com.example.models.Order;
+import com.example.transactions.model.Order;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

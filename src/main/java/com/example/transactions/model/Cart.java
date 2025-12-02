@@ -1,4 +1,6 @@
-package com.example.models;
+package com.example.transactions.model;
+
+import com.example.catalog.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,36 +9,36 @@ public class Cart {
 
     //region Variables/Columns
 
-    int cartID;
-    int customerID;
+    long cart_id;
+    long customer_id;
     private List<Product> products = new ArrayList<>();
 
     //endregion
 
     //region Constructors
-    public Cart(int cartID, int customerID) {
-        this.cartID = cartID;
-        this.customerID = customerID;
+    public Cart(long cart_id, long customer_id) {
+        this.cart_id = cart_id;
+        this.customer_id = customer_id;
     }
 
     public Cart(){}
     //endregion
 
     //region Getters/Setters
-    public int getCartID() {
-        return cartID;
+    public long getCart_id() {
+        return cart_id;
     }
 
-    public void setCartID(int cartID) {
-        this.cartID = cartID;
+    public void setCart_id(int cart_id) {
+        this.cart_id = cart_id;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public long getCustomer_id() {
+        return customer_id;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setCustomer_id(long customer_id) {
+        this.customer_id = customer_id;
     }
 
     public List<Product> getProducts() {

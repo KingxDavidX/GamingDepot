@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.catalog.model;
 
 import java.util.Set;
 
@@ -7,17 +7,17 @@ public class Category {
 
     //region Variable/Products
 
-    int categoryId;
+    long category_id;
     String name;
     String description;
-    private Set<Product> products;
+    private Set<Long> product_ids;
 
     //endregion
 
     //region Constructors
 
-    public Category(int categoryId, String name, String description) {
-        this.categoryId = categoryId;
+    public Category(long category_id, String name, String description) {
+        this.category_id = category_id;
         this.name = name;
         this.description = description;
     }
@@ -26,12 +26,12 @@ public class Category {
     //endregion
 
     //region Getters/Setters
-    public int getCategoryId() {
-        return categoryId;
+    public long getCategory_id() {
+        return category_id;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory_id(long category_id) {
+        this.category_id = category_id;
     }
 
     public String getName() {

@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import com.example.models.Category;
+import com.example.catalog.model.Category;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

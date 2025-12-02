@@ -2,7 +2,7 @@ package com.example.controllers;
 
 import java.util.*;
 
-import com.example.models.User;
+import com.example.transactions.model.User;
 
 public class UserDataArray {
     private static final ArrayList<User> users = new ArrayList<>();

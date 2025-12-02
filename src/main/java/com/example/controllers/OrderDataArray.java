@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import com.example.models.Order;
+import com.example.transactions.model.Order;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class OrderDataArray {
     private static final ArrayList<Order> orders = new ArrayList<>();
 
     public static String add(Order order) {
-        if (orders.stream().filter(i -> i.getOrderId() == order.getOrderId()).findFirst().orElse(null) == null) {
+        if (orders.stream().filter(i -> i.getOrder_is() == order.getOrder_is()).findFirst().orElse(null) == null) {
             orders.add(order);
             return "Order Added";
         } else {
@@ -21,11 +21,11 @@ public class OrderDataArray {
     }
 
     public static Order getById(int id) {
-        return orders.stream().filter(order -> order.getOrderId() == id).findFirst().orElse(null);
+        return orders.stream().filter(order -> order.getOrder_is() == id).findFirst().orElse(null);
     }
 
     public static Order update(Order order) {
-        Order temp_order = orders.stream().filter(i -> i.getOrderId() == order.getOrderId()).findFirst().orElse(null);
+        Order temp_order = orders.stream().filter(i -> i.getOrder_is() == order.getOrder_is()).findFirst().orElse(null);
         if (temp_order != null) {
             orders.remove(temp_order);
             orders.add(order);
@@ -35,6 +35,6 @@ public class OrderDataArray {
     }
 
     public static String deleteById(int id) {
-        return orders.removeIf(pilot -> pilot.getOrderId() == id) ? "Removed" : "Not Found";
+        return orders.removeIf(pilot -> pilot.getOrder_is() == id) ? "Removed" : "Not Found";
     }
 }
