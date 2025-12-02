@@ -10,7 +10,6 @@ public class Category {
     long category_id;
     String name;
     String description;
-    private Set<Long> product_ids;
 
     //endregion
 
@@ -51,17 +50,6 @@ public class Category {
     }
 
     //endregion
-
-    public void addProduct(){
-        //TODO: Implement method logic
-    }
-
-    public void removeProduct(){
-        //TODO: Implement method logic
-    }
-    public void getProduct(){
-        //TODO: Implement method logic
-    }
 
 
 }

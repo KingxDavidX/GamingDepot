@@ -1,34 +1,35 @@
 package com.example.controllers;
 
+import com.example.catalog.dao.CategoryDao;
 import com.example.catalog.model.Category;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/categories")
 public class CategoryController {
-    public CategoryController(){}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String create(@RequestBody Category product) {
-        return CategoryDataArray.add(product);
-    }
-    @RequestMapping(path = "", method = RequestMethod.GET)
-    public List<Category> getAll() {
-        return CategoryDataArray.getCategories();
+    private final CategoryDao categoryDao;
+
+    public CategoryController(CategoryDao dao) {
+        this.categoryDao = dao;
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Category findByID(@PathVariable int id) {
-        return CategoryDataArray.getById(id);
+    @GetMapping
+    public List<Category> all() {
+        return categoryDao.findAll();
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    public Category update(@PathVariable Category category) {
-        return CategoryDataArray.update(category);
+    @GetMapping("/{id}")
+    public Category byId(@PathVariable int id) {
+        return categoryDao.findById(id);
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-    public static String deleteByID(@PathVariable int id) {
-        return CategoryDataArray.deleteById(id);
+    @GetMapping("/by-name")
+    public Category byName(@RequestParam String name) {
+        return categoryDao.findByName(name);
     }
+
+
 }

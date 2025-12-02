@@ -18,6 +18,7 @@ public class Product {
     private String product_page_url;
     private String product_category;
     private BigDecimal discount_percentage;
+    private int category_id;
 
     public Product() {}
 
@@ -25,7 +26,7 @@ public class Product {
                    BigDecimal discounted_price, BigDecimal original_price, String is_best_seller,
                    String is_sponsored, String has_coupon, String sustainability_tags,
                    String product_image_url, String product_page_url, String productCategory,
-                   BigDecimal discount_percentage) {
+                   BigDecimal discount_percentage, int category_id) {
         this.product_id = product_id;
         this.product_title = product_title;
         this.product_rating = product_rating;
@@ -40,6 +41,7 @@ public class Product {
         this.product_page_url = product_page_url;
         this.product_category = productCategory;
         this.discount_percentage = discount_percentage;
+        this.category_id = category_id;
     }
 
 
@@ -86,7 +88,20 @@ public class Product {
 
     public BigDecimal getDiscount_percentage() { return discount_percentage; }
     public void setDiscount_percentage(BigDecimal discount_percentage) { this.discount_percentage = discount_percentage; }
-//endregion
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+    public void setProduct_id(long product_id) {
+        this.product_id = product_id;
+    }
+
+    //endregion
 
 
 }
