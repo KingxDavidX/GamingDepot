@@ -1,7 +1,5 @@
 package com.example.transactions.model;
 
-import java.util.Date;
-
 public class User {
 
     private long user_id;
@@ -11,7 +9,7 @@ public class User {
 
     public User() {}
 
-    public User(long user_id, String email, String password_hash, String username) {
+    public User(Long user_id, String email, String password_hash, String username) {
         this.user_id = user_id;
         this.email = email;
         this.password_hash = password_hash;
@@ -20,11 +18,11 @@ public class User {
 
     //region Getters/Setters
 
-    public long getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
@@ -54,14 +52,6 @@ public class User {
 
 
     //endregion
-
-    public void login() {
-        //TODO: Implement funtionality
-    }
-
-    public void register() {
-        //TODO: Implement funtionality
-    }
 
 
 }

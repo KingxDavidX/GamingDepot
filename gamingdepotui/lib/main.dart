@@ -27,7 +27,7 @@ class Product {
 }
 
 //sample data
-List<Product> products = [
+List<Product> product_id = [
   Product(
     title: "BOYA BOYALINK 2 Wireless Lavalier Microphone for iPhone Camera Android, Mini Lapel Micophone Wireless, 48 KHz 24 Bit, 6mm Mic, 1000ft, 30h Use, Noise Cancelling, Clip on Mic USB-C/Lightning/3.5mm TRS",
     rating: 4.6,
@@ -91,9 +91,9 @@ class ProductListScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(10),
-        itemCount: products.length,
+        itemCount: product_id.length,
         itemBuilder: (context, index) {
-          final product = products[index];
+          final product = product_id[index];
           return Card(
             margin: const EdgeInsets.symmetric(vertical: 8),
             child: Padding(
