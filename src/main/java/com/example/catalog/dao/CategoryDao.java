@@ -28,17 +28,17 @@ public class CategoryDao {
     }
 
     public List<Category> findAll() {
-        String sql = "SELECT category_id, name, description FROM categories";
+        String sql = "SELECT * FROM categories";
         return jdbc.query(sql, categoryRowMapper);
     }
 
     public Category findById(int id) {
-        String sql = "SELECT category_id, name, description FROM categories WHERE category_id = ?";
+        String sql = "SELECT * FROM categories WHERE category_id = ?";
         return jdbc.queryForObject(sql, categoryRowMapper, id);
     }
 
     public Category findByName(String name) {
-        String sql = "SELECT category_id, name, description FROM categories WHERE name = ?";
+        String sql = "SELECT * FROM categories WHERE name = ?";
         return jdbc.queryForObject(sql, categoryRowMapper, name);
     }
 

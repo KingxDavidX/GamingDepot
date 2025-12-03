@@ -26,8 +26,8 @@ public class CategoryController {
         return categoryDao.findById(id);
     }
 
-    @GetMapping("/by-name")
-    public Category byName(@RequestParam String name) {
+    @GetMapping("/by-name/{name}")
+    public  Category byName(@PathVariable String name) {
         return categoryDao.findByName(name);
     }
 

@@ -1,13 +1,12 @@
 package com.example.transactions.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class Order {
     //region Variables/Columns
 
-    private List<Long> customer_ids;
-    long order_is;
+    private Long customer_id;
+    long order_id;
     Date order_date;
     String status;
     float total_amount;
@@ -15,9 +14,9 @@ public class Order {
     //endregion
 
     //region Constructor
-    public Order(List<Long> customer_ids, long order_is, Date order_date, String status, float total_amount) {
-        this.customer_ids = customer_ids;
-        this.order_is = order_is;
+    public Order(Long customer_id, long order_id, Date order_date, String status, float total_amount) {
+        this.customer_id = customer_id;
+        this.order_id = order_id;
         this.order_date = order_date;
         this.status = status;
         this.total_amount = total_amount;
@@ -29,20 +28,20 @@ public class Order {
 
     //region Getters/Setters
 
-    public List<Long> getCustomer_ids() {
-        return customer_ids;
+    public Long getCustomer_id() {
+        return customer_id;
     }
 
-    public void setCustomer_ids(List<Long> customer_ids) {
-        this.customer_ids = customer_ids;
+    public void setCustomer_id(Long customer_id) {
+        this.customer_id = customer_id;
     }
 
-    public long getOrder_is() {
-        return order_is;
+    public long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrder_is(long order_is) {
-        this.order_is = order_is;
+    public void setOrder_id(long order_id) {
+        this.order_id = order_id;
     }
 
     public Date getOrder_date() {
