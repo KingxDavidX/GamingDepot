@@ -23,6 +23,9 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
+        if(user.getPassword_hash() == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         ApiResponse response = userDao.addUser(user);
 
         if (response instanceof ApiMessage) {

@@ -1,3 +1,5 @@
 package com.example.transactions.dto;
 
-public interface ApiResponse {}
+public interface ApiResponse {
+
+}
