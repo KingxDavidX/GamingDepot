@@ -1,6 +1,6 @@
 package com.example.transactions.dto;
 
-public record ApiMessage() implements ApiResponse {
+public class ApiMessage implements ApiResponse {
     private String message;
 
     public ApiMessage() {}

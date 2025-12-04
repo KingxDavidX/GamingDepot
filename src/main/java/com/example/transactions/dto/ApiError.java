@@ -1,6 +1,6 @@
 package com.example.transactions.dto;
 
-public record ApiError() implements ApiResponse {
+public class ApiError implements ApiResponse {
     private String Error;
 
     public ApiError() {}
