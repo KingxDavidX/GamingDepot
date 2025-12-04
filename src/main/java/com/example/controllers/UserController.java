@@ -1,6 +1,10 @@
 package com.example.controllers;
 
+import com.example.security.JwtUtil;
 import com.example.transactions.dao.UserDao;
+import com.example.transactions.dto.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -10,20 +14,34 @@ import com.example.transactions.model.User;
 @RequestMapping("/users")
 public class UserController {
     private final UserDao userDao;
+    private final JwtUtil jwtUtil;
 
-    public UserController(UserDao userDao) {
+    public UserController(UserDao userDao,  JwtUtil jwtUtil) {
         this.userDao = userDao;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/register")
-    public String register(@RequestBody User user) {
-        userDao.addUser(user);
-        return "User registered successfully";
+    public ResponseEntity<?> register(@RequestBody User user) {
+        ApiResponse response = userDao.addUser(user);
+
+        if (response instanceof ApiMessage) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        }
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        return null;
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        User authenticated = userDao.authenticate(loginRequest.getUsername(), loginRequest.getPassword());
+        if (authenticated != null) {
+            String token = jwtUtil.generateToken(authenticated.getUsername(), authenticated.getUser_id());
+            UserDTO dto = new UserDTO(authenticated);
+            return ResponseEntity.ok(new LoginResponse(token, dto));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiError("Invalid username or password"));
+        }
     }
 
 

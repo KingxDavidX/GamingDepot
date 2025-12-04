@@ -1,10 +1,16 @@
 package com.example.transactions.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
 
     private long user_id;
+
     private String email;
+
+    @JsonIgnore
     private String password_hash;
+
     private String username;
 
     public User() {}
