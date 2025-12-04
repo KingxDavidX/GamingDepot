@@ -1,13 +1,15 @@
 package com.example.transactions.dao;
 
 import com.example.service.PasswordService;
+import com.example.transactions.dto.ApiError;
+import com.example.transactions.dto.ApiMessage;
+import com.example.transactions.dto.ApiResponse;
 import com.example.transactions.model.User;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,14 +36,17 @@ public class UserDao {
         return u;
     }
 
-    public String addUser(@RequestParam User user) {
-        if (existsByUsername(user.getUsername()) || existsByEmail(user.getEmail())) {
-            return "Account already exists";
+    public ApiResponse addUser(User user) {
+        if (existsByUsername(user.getUsername()) ) {
+            return new ApiError("Username already exists");
+        }
+        if  (existsByEmail(user.getEmail()) ) {
+            return new ApiError("Email already exists");
         }
         String sql = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
         String hashed = passwordService.hashPassword(user.getPassword_hash());
         jdbc.update(sql, user.getUsername(), user.getEmail(), hashed);
-        return "User created";
+        return new ApiMessage("User created");
     }
 
     private boolean existsByUsername(String username) {
@@ -54,6 +59,21 @@ public class UserDao {
         String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
         Integer count = jdbc.queryForObject(sql, Integer.class, email);
         return count != null && count > 0;
+    }
+
+    public User authenticate(String username, String rawPassword) {
+        String sql = "SELECT * FROM users WHERE username = ?";
+
+        try {
+            User user = jdbc.queryForObject(sql, userRowMapper, username);
+            if (passwordService.verifyPassword(rawPassword, user.getPassword_hash())) {
+                return user;
+            } else {
+                return null;
+            }
+        }catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
 
