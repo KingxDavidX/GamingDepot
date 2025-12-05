@@ -16,7 +16,7 @@ public class ProductController {
         this.productDao = productDao;
     }
 
-    @GetMapping("/{limit}/{offset}")
+    @GetMapping("/page/{limit}/{offset}")
     public List<Product> all(@PathVariable int limit, @PathVariable int offset) {
         return productDao.findAll(limit, offset);
     }
