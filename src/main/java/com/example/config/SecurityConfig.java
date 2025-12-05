@@ -28,9 +28,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // allow login/register and preflight (CORS)
                         .requestMatchers("/users/register", "/users/login", "/actuator/**").permitAll()
                         .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/categories/**", "/products/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 // make sure JWT filter runs before Spring's username/password filter
