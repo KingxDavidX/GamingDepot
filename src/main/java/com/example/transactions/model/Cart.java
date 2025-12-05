@@ -8,15 +8,16 @@ public class Cart {
     //region Variables/Columns
 
     private Long cart_id;
-    private long customer_id;
+    private Long user_id;
     private List<Long> product_ids = new ArrayList<>();
+    private Long quantity;
 
     //endregion
 
     //region Constructors
-    public Cart(Long cart_id, Long customer_id) {
+    public Cart(Long cart_id, Long user_id) {
         this.cart_id = cart_id;
-        this.customer_id = customer_id;
+        this.user_id = user_id;
     }
 
     public Cart(){}
@@ -31,12 +32,12 @@ public class Cart {
         this.cart_id = cart_id;
     }
 
-    public Long getCustomer_id() {
-        return customer_id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setCustomer_id(Long customer_id) {
-        this.customer_id = customer_id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public List<Long> getProduct_ids() {
@@ -45,6 +46,14 @@ public class Cart {
 
     public void setProduct_ids(List<Long> product_ids) {
         this.product_ids = product_ids;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     //endregion
