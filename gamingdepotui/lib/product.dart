@@ -1,5 +1,5 @@
 class Product {
-  final int productId;
+  final int product_id;
   final String productTitle;
   final double? productRating;
   final int? totalReviews;
@@ -15,7 +15,7 @@ class Product {
   final double? discountPercentage;
 
   Product({
-    required this.productId,
+    required this.product_id,
     required this.productTitle,
     this.productRating,
     this.totalReviews,
@@ -33,7 +33,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      productId: json['product_id'],
+      product_id: json['product_id'],
       productTitle: json['product_title'],
       productRating: json['product_rating'] != null
           ? (json['product_rating'] as num).toDouble()

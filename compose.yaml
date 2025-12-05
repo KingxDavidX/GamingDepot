@@ -8,3 +8,15 @@ services:
       - 'MYSQL_USER=myuser'
     ports:
       - '3306'
+  mysqlUsers:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=userDatabase'
+      - 'MYSQL_PASSWORD=password'
+      - 'MYSQL_ROOT_PASSWORD=secretPassword'
+      - 'MYSQL_USER=thisUser'
+    ports:
+      - '3306'
+volumes:
+  mysql:
+  mysqlUsers:
